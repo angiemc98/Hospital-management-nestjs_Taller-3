@@ -11,9 +11,10 @@ import { InvoiceModule } from './invoice/invoice.module';
 import { OfficeModule } from './office/office.module';
 import { SpecialtyModule } from './specialty/specialty.module';
 import { PrescriptionDetailModule } from './prescription-detail/prescription-detail.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [PersonModule, DoctorModule, PatientModule, AppointmentModule, MedicineModule, PrescriptionModule, InvoiceModule, OfficeModule, SpecialtyModule, PrescriptionDetailModule],
+  imports: [PersonModule, DoctorModule, PatientModule, AppointmentModule, MedicineModule, PrescriptionModule, InvoiceModule, OfficeModule, SpecialtyModule, PrescriptionDetailModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
