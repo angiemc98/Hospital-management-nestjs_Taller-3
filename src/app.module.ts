@@ -24,6 +24,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'postgres',
       password: '',
       database: 'hospital_db',
+      // hace que se generen las migraciones automaticamente a la BD 
       synchronize: true,
     }),
   ],
