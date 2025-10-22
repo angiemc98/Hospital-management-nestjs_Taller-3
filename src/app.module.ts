@@ -11,10 +11,22 @@ import { InvoiceModule } from './invoice/invoice.module';
 import { OfficeModule } from './office/office.module';
 import { SpecialtyModule } from './specialty/specialty.module';
 import { PrescriptionDetailModule } from './prescription-detail/prescription-detail.module';
-import { AuthModule } from './auth/auth.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [PersonModule, DoctorModule, PatientModule, AppointmentModule, MedicineModule, PrescriptionModule, InvoiceModule, OfficeModule, SpecialtyModule, PrescriptionDetailModule, AuthModule],
+  imports: [PersonModule, DoctorModule, PatientModule, AppointmentModule, MedicineModule, PrescriptionModule, InvoiceModule, OfficeModule, SpecialtyModule, PrescriptionDetailModule,
+    // config TypeORM - postgres 
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      entities: [__dirname, '/**/*.entity{.ts,.js}'],
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: '',
+      database: 'hospital_db',
+      synchronize: true,
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
