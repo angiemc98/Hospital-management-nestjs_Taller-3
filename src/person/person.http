@@ -5,10 +5,10 @@ Content-Type: application/json
     {
     "name": "Juan",
     "lastName": "Perez",
-    "document": "123456789",
+    "document": "123456780",
     "birthDate": "1990-01-01",
-    "email": "juanperez@gmail.com",
-    "phone": "123456789",
+    "email": "juanp@gmail.com",
+    "phone": "12345679",
     "role": "Doctor",
     "gender": "Male"
     },
@@ -16,12 +16,22 @@ Content-Type: application/json
     {
     "name": "Maria",
     "lastName": "Perez",
-    "document": "123456788",
+    "document": "123456787",
     "birthDate": "1990-01-01",
-    "email": "mariaperez@gmail.com",
-    "phone": "31258698",
+    "email": "mariapere@gmail.com",
+    "phone": "31258690",
     "role": "Patient",
     "gender": "Female"
+    },
+    {
+        "name": "Pedro",
+        "lastName": "Perez",
+        "document": "123456786",
+        "birthDate": "1990-01-01",
+        "email": "pedroperez@gmail.com",
+        "phone": "31258697",
+        "role": "Patient",
+        "gender": "Male"
     }
 ]
 
@@ -29,24 +39,18 @@ Content-Type: application/json
 GET http://localhost:3000/person
 
 #Find One Person
-GET http://localhost:3000/person/9
+GET http://localhost:3000/person/22
 
 #Update Person
-PATCH http://localhost:3000/person/8
+PATCH http://localhost:3000/person/21
 Content-Type: application/json
 
 {
-    "name": "Juan",
-    "lastName": "Perez",
-    "document": "123456789",
-    "birthDate": "1992-01-01",
-    "email": "juanperez@gmail.com",
-    "phone": "123456785",
     "role": "Doctor"
 }
 
 #Delete Person
-DELETE http://localhost:3000/person/1
+DELETE http://localhost:3000/person/21
 
 #Find By Role
-GET http://localhost:3000/person/role/Doctor
+GET http://localhost:3000/person/role/Patient
