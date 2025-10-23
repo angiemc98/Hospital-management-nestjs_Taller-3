@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import { Person } from "../person/person.entity";
+import { Appointment } from "../appointment/appointment.entity";
 
 
 
@@ -25,9 +26,9 @@ export class Doctor {
     @JoinColumn({name:'specialty_id'})
     specialty:Specialty; */
 
-    /*
+    
     @OneToMany(() => Appointment, (appointment) => appointment.doctor, {cascade: true})
-    appointments:Appointment[]; */
+    appointments:Appointment[];
 
     /*
     @OneToMany(() => Prescription, (prescription => prescription.doctor)
