@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Prescription } from "src/prescription/prescription.entity";
 
 
 @Entity('medicine')
@@ -25,6 +26,8 @@ export class Medicine {
     @Column({type: 'varchar', length: 50})
     price: string;
 
+    @OneToMany(() => Prescription, (prescription) => prescription.medicine)
+    prescription: Prescription[];
     /*
     @OneToMany(() => PrescriptionDetail, (prescription) => prescription.medicine)
     prescriptions: PrescriptionDetail[];
