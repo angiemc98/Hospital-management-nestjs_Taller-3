@@ -1,13 +1,10 @@
-import { Invoice } from "src/invoice/entities/invoice.entity";
+import { Invoice } from "src/invoice/invoice.entity";
 import { Office } from "src/office/entities/office.entity";
 import { Entity, ManyToOne, OneToMany } from "typeorm";
 
 @Entity('cita')
 export class Appointment {
     // Atributos de la cita ....
-
-
-
 
     // Relacion uno a muchos CITA - FACTURA 'Una cita puede tener muchas facturas'
     @OneToMany(() => Invoice, (Factura) => Factura.propety_cita)

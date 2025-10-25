@@ -11,23 +11,26 @@ import { InvoiceModule } from './invoice/invoice.module';
 import { OfficeModule } from './office/office.module';
 import { SpecialtyModule } from './specialty/specialty.module';
 import { PrescriptionDetailModule } from './prescription-detail/prescription-detail.module';
+import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [PersonModule, DoctorModule, PatientModule, AppointmentModule, MedicineModule, PrescriptionModule, InvoiceModule, OfficeModule, SpecialtyModule, PrescriptionDetailModule,
-    // config TypeORM - postgres 
-    TypeOrmModule.forRoot({
+  imports: [PersonModule, DoctorModule, PatientModule, AppointmentModule, MedicineModule, PrescriptionModule, InvoiceModule, OfficeModule, SpecialtyModule, PrescriptionDetailModule, AuthModule, TypeOrmModule.forRoot(
+    {
       type: 'postgres',
-      entities: [__dirname, '/**/*.entity{.ts,.js}'],
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: '',
-      database: 'hospital_db',
-      // hace que se generen las migraciones automaticamente a la BD 
+      password: '1111',
+      database: 'hospital',
+      entities: [
+        'dist/**/*.entity{.ts,.js}',
+      ],
       synchronize: true,
-    }),
-  ],
+      autoLoadEntities: true,
+    }
+  )],
+
   controllers: [AppController],
   providers: [AppService],
 })

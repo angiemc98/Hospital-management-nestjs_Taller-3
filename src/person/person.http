@@ -1,0 +1,56 @@
+#Create Person
+POST http://localhost:3000/person
+Content-Type: application/json
+[
+    {
+    "name": "Juan",
+    "lastName": "Perez",
+    "document": "123456780",
+    "birthDate": "1990-01-01",
+    "email": "juanp@gmail.com",
+    "phone": "12345679",
+    "role": "Doctor",
+    "gender": "Male"
+    },
+
+    {
+    "name": "Maria",
+    "lastName": "Perez",
+    "document": "123456787",
+    "birthDate": "1990-01-01",
+    "email": "mariapere@gmail.com",
+    "phone": "31258690",
+    "role": "Patient",
+    "gender": "Female"
+    },
+    {
+        "name": "Pedro",
+        "lastName": "Perez",
+        "document": "123456786",
+        "birthDate": "1990-01-01",
+        "email": "pedroperez@gmail.com",
+        "phone": "31258697",
+        "role": "Patient",
+        "gender": "Male"
+    }
+]
+
+#Find All Person
+GET http://localhost:3000/person
+
+#Find One Person
+GET http://localhost:3000/person/22
+
+#Update Person
+PATCH http://localhost:3000/person/21
+Content-Type: application/json
+
+{
+    "role": "Doctor"
+}
+
+#Delete Person
+DELETE http://localhost:3000/person/21
+
+#Find By Role
+GET http://localhost:3000/person/role/Patient

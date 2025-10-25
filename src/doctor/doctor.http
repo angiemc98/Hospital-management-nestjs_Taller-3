@@ -1,0 +1,26 @@
+### Create Doctor
+POST http://localhost:3000/doctor
+Content-Type: application/json
+{
+    "licenseNumber": "DOC-2024-005",
+    "personaId": 21
+}
+
+### Find All Doctor
+GET http://localhost:3000/doctor
+
+### Find One Doctor
+GET http://localhost:3000/doctor/1
+
+### Update Doctor
+PATCH http://localhost:3000/doctor/1
+Content-Type: application/json
+
+{
+    "personaId": 1,
+    "specialtyId": 1,
+    "licenseNumber": "123456789"
+}
+
+### Delete Doctor
+DELETE http://localhost:3000/doctor/2
