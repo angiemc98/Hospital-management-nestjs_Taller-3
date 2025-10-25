@@ -1,7 +1,8 @@
 import { Doctor } from "src/doctor/doctor.entity";
 import { Patient } from "src/patient/patient.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Medicine } from "src/medicine/medicine.entity";
+import { PrescriptionDetail } from "src/prescription-detail/prescription-detail.entity";
 
 
 @Entity('prescription')
@@ -33,8 +34,7 @@ export class Prescription {
     @ManyToOne(() => Medicine, medicine => medicine.prescription)
     @JoinColumn({name: 'medicine_id'})
     medicine: Medicine;
-    /* 
-    @OneToMany(() => PrescriptionDetail, (prescriptionDetail) => prescriptionDetail.prescription)
-    prescriptionDetails: PrescriptionDetail[];
-    */
+    
+    @OneToMany(() => PrescriptionDetail, prescriptionDetail => prescriptionDetail.prescription)
+    details: PrescriptionDetail[];
 }

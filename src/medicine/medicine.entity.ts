@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Prescription } from "src/prescription/prescription.entity";
+import { PrescriptionDetail } from "src/prescription-detail/prescription-detail.entity";
 
 
 @Entity('medicine')
@@ -28,8 +29,8 @@ export class Medicine {
 
     @OneToMany(() => Prescription, (prescription) => prescription.medicine)
     prescription: Prescription[];
-    /*
+    
     @OneToMany(() => PrescriptionDetail, (prescription) => prescription.medicine)
-    prescriptions: PrescriptionDetail[];
-    */
+    details: PrescriptionDetail[];
+    
 }

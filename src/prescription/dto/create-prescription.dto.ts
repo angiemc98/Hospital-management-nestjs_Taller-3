@@ -1,5 +1,6 @@
 import { Type } from "class-transformer";
-import { IsInt, IsOptional, IsString, ValidateNested } from "class-validator";
+import { IsInt, IsOptional, IsString, ValidateNested, IsArray } from "class-validator";
+import { CreatePrescriptionDetailDto } from "../../prescription-detail/dto/create-prescription-detail.dto";
 
 
 
@@ -21,10 +22,10 @@ export class CreatePrescriptionDto {
     @IsInt()
     duration: number;
 
-    /*
+    
     @IsArray()
     @ValidateNested({each: true})
     @Type(() => CreatePrescriptionDetailDto)
     details: CreatePrescriptionDetailDto[];
-    */
+    
 }
