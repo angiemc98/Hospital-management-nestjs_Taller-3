@@ -1,5 +1,8 @@
-import { Appointment } from "src/appointment/entities/appointment.entity";
+import { Appointment } from "src/appointment/appointment.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Patient } from "src/patient/patient.entity";
+
+
 
 @Entity('factura')
 export class Invoice {
@@ -24,8 +27,14 @@ export class Invoice {
     estado_pago: string;
 
     // relacion factura > cita Uno a muchos 'Varias facturas pueden pertenecer a una cita' onDelete: 'CASCADE' (Si se elimina una cita se eliminan todas las facturas de esa cita)
-    @ManyToOne(() => Appointment, (Cita) => Cita.propety_factura, {onDelete: 'CASCADE'})
+    @ManyToOne(() => Appointment, (Cita) => Cita.invoice, {onDelete: 'CASCADE'})
     // llave foranea id_cita JoinColumn = Define el nombre de la columna de la llave foranea en la table factura
     @JoinColumn({name: 'id_cita'})
     propety_cita: Appointment;
+
+    // relacion factura > paciente Uno a muchos 'Varias facturas pueden pertenecer a un paciente' onDelete: 'CASCADE' (Si se elimina un paciente se eliminan todas las facturas de ese paciente)
+    @ManyToOne(() => Patient, (paciente) => paciente.invoices, {onDelete: 'CASCADE'})
+    // llave foranea id_paciente JoinColumn = Define el nombre de la columna de la llave foranea en la table factura
+    @JoinColumn({name: 'id_paciente'})
+    propety_patient: Patient;
 }

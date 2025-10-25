@@ -7,8 +7,9 @@ Content-Type: application/json
     "reason": "Cita control de la presión arterial",
     "notes": "Paciente refiere mareos",
     "status": "scheduled",
-    "doctor_id": 20,
-    "patient_id": 9
+    "doctor_id": 2,
+    "patient_id": 4,
+    "office_id": 1
 }
 
 ### Get all appointments

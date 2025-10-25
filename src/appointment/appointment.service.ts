@@ -6,6 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, } from 'typeorm';
 import { Doctor } from 'src/doctor/doctor.entity';
 import { Patient } from 'src/patient/patient.entity';
+import { Office } from 'src/office/office.entity';
 
 @Injectable()
 export class AppointmentService {
@@ -17,22 +18,26 @@ export class AppointmentService {
     private readonly doctorRepository: Repository<Doctor>,
     @InjectRepository(Patient)
     private readonly patientRepository: Repository<Patient>,
-    /*
+    
     @InjectRepository(Office)
     private readonly officeRepository: Repository<Office>,
-    */
+    
   ) { }
 
 
   async create (createAppointmentDto: CreateAppointmentDto) {
     const doctor = await this.doctorRepository.findOneBy({id: createAppointmentDto.doctorId});
     const patient = await this.patientRepository.findOneBy({id: createAppointmentDto.patientId});
-    /*
-    const office = await this.officeRepository.findOneBy({id: createAppointmentDto.officeId});
-    */
+    const office = await this.officeRepository.findOneBy({id_consultorio: createAppointmentDto.officeId});
+  
     if (!doctor || !patient) {
       throw new Error('Doctor or patient not found');
     }
+
+    if (!office) {
+      throw new Error('Office not found');
+    }
+
     const appointment = this.appointmentRepository.create({
       date: new Date(createAppointmentDto.date),
       reason: createAppointmentDto.reason,
@@ -40,9 +45,7 @@ export class AppointmentService {
       status: createAppointmentDto.status || 'scheduled',
       doctor: doctor,
       patient: patient,
-      /*
-      office: createAppointmentDto.officeId,
-      */
+      office: office
     });
     return this.appointmentRepository.save(appointment);
   }

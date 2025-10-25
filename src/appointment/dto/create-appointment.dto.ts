@@ -24,8 +24,8 @@ export class CreateAppointmentDto {
 
     @IsInt()
     patientId: number;
-    /*
+    
     @IsInt()
     officeId: number;
-    */
+    
 }

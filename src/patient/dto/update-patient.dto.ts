@@ -14,5 +14,9 @@ export class UpdatePatientDto {
 
     @IsString()
     @IsNotEmpty()
+    insurance?: string;
+
+    @IsString()
+    @IsNotEmpty()
     medicalHistory: string;
 }

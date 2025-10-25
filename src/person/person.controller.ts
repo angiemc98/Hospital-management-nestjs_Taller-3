@@ -22,6 +22,7 @@ export class PersonController {
     return this.personService.findOne(id);
   }
 
+  //Verificar
   @Get('role/:role')
   findByRole(@Param('role') role: string) {
     return this.personService.findByrole(role);

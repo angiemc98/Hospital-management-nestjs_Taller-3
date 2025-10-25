@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany
 import { Appointment } from "../appointment/appointment.entity";
 import { Person } from "../person/person.entity";
 import { Prescription } from "../prescription/prescription.entity";
+import { Invoice } from "../invoice/invoice.entity";
 
 
 
@@ -13,6 +14,9 @@ export class Patient {
 
     @Column({type: 'varchar', length: 50})
     bloodType: string;
+
+    @Column({enum: ['contributive', 'subsidized', 'free']})
+    insurance: string;
 
     @Column({type: 'text', nullable: true})
     medicalHistory: string;
@@ -28,4 +32,7 @@ export class Patient {
 
     @OneToMany(() => Prescription, (prescription) => prescription.patient, {cascade: true})
     prescription: Prescription[];
+
+    @OneToMany(() => Invoice, (invoice) => invoice.propety_patient, {cascade: true})
+    invoices: Invoice[];
 }

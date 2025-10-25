@@ -2,8 +2,9 @@
 POST http://localhost:3000/doctor
 Content-Type: application/json
 {
-    "licenseNumber": "DOC-2024-005",
-    "personaId": 21
+    "licenseNumber": "DOC-2024-000",
+    "personaId": 4,
+    "specialtyId": 1
 }
 
 ### Find All Doctor
@@ -13,13 +14,13 @@ GET http://localhost:3000/doctor
 GET http://localhost:3000/doctor/1
 
 ### Update Doctor
-PATCH http://localhost:3000/doctor/1
+PATCH http://localhost:3000/doctor/2
 Content-Type: application/json
 
 {
-    "personaId": 1,
-    "specialtyId": 1,
-    "licenseNumber": "123456789"
+    
+    "specialtyId": 2
+    
 }
 
 ### Delete Doctor

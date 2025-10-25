@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne
 import { Person } from "../person/person.entity";
 import { Appointment } from "../appointment/appointment.entity";
 import { Prescription } from "../prescription/prescription.entity";
+import { Specialty } from "../specialty/specialty.entity";
 
 
 @Entity('doctor')
@@ -21,10 +22,10 @@ export class Doctor {
     @JoinColumn({name:'person_id'})
     person:Person;
     
-    /*
-    @ManyToOne(() => Specialty, (specialty) => specialty.doctors, {cascade: true})
+    
+    @ManyToOne(() => Specialty, (Especialidades) => Especialidades.propety_doctor, {cascade: true})
     @JoinColumn({name:'specialty_id'})
-    specialty:Specialty; */
+    specialty:Specialty; 
 
     
     @OneToMany(() => Appointment, (appointment) => appointment.doctor, {cascade: true})

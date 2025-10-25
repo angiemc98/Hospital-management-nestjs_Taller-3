@@ -1,6 +1,8 @@
 import { IsOptional, IsString, Length } from "class-validator";
 
-export class CreateSpecialtyDto{
+
+
+export class UpdateSpecialtyDto {
     
     @IsString()
     @Length(2, 100)
@@ -9,6 +11,6 @@ export class CreateSpecialtyDto{
     @IsString()
     @Length(2, 100)
     @IsOptional()
-    descripcion: string;
+    description: string;
 
 }

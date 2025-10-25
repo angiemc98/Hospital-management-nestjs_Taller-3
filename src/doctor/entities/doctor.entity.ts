@@ -1,4 +1,4 @@
-import { Specialty } from "src/specialty/entities/specialty.entity";
+/*import { Specialty } from "src/specialty/specialty.entity";
 import { Entity, ManyToOne } from "typeorm";
 
 @Entity('doctor')
@@ -10,3 +10,4 @@ export class Doctor{
     @ManyToOne(() => Specialty, (Especialidad) => Especialidad.propety_doctor)
     propety_especialidad: Specialty;
 }
+*/

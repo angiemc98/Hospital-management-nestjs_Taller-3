@@ -1,9 +1,9 @@
-import { Appointment } from "src/appointment/entities/appointment.entity";
+import { Appointment } from "src/appointment/appointment.entity"; 
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('consultorio')
 export class Office{
-    @PrimaryGeneratedColumn('increment')
+    @PrimaryGeneratedColumn()
     id_consultorio: number;
     
     @Column({unique: true})
@@ -17,6 +17,6 @@ export class Office{
     disponible: boolean
 
     // relacion consultorio - Cita Uno a muchos 'Un consultorio puede tener muchas citas'   
-    @OneToMany(() => Appointment, (Cita) => Cita.propety_consultorio)
+    @OneToMany(() => Appointment, (Cita) => Cita.office, {cascade: true})
     property_cita: Appointment[];
 }

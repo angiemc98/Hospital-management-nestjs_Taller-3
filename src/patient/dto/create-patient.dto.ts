@@ -15,6 +15,10 @@ export class CreatePatientDto {
 
     @IsString()
     @IsNotEmpty()
+    insurance?: string;
+
+    @IsString()
+    @IsNotEmpty()
     medicalHistory: string;
 
 }

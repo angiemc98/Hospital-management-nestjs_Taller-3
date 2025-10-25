@@ -1,3 +1,4 @@
+/*
 import { Invoice } from "src/invoice/invoice.entity";
 import { Office } from "src/office/entities/office.entity";
 import { Entity, ManyToOne, OneToMany } from "typeorm";
@@ -14,3 +15,4 @@ export class Appointment {
     @ManyToOne(() => Office, (Consultorio) => Consultorio.property_cita, {onDelete: 'CASCADE'})
     propety_consultorio: Office;
 }
+*/

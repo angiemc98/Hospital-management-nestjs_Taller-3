@@ -32,6 +32,16 @@ Content-Type: application/json
         "phone": "31258697",
         "role": "Patient",
         "gender": "Male"
+    },
+    {
+        "name": "Juan",
+        "lastName": "Ortega",
+        "document": "123456788",
+        "birthDate": "1990-01-01",
+        "email": "juanortega@gmail.com",
+        "phone": "31258698",
+        "role": "Doctor",
+        "gender": "Male"
     }
 ]
 

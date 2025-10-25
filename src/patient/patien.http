@@ -2,9 +2,10 @@
 POST http://localhost:3000/patient
 Content-Type: application/json
 {
-    "personId": 9,
     "bloodType": "A+",
-    "medicalHistory": "I have a fever"
+    "insurance": "contributive",
+    "medicalHistory": "I have a fever",
+    "personId": 2
 }
 
 ### Find All Patient

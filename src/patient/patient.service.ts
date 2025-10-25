@@ -23,6 +23,7 @@ export class PatientService {
         }
         const patient = this.patientRepository.create({
             person,
+            insurance: Patientdto.insurance,
             bloodType: Patientdto.bloodType,
             medicalHistory: Patientdto.medicalHistory
         });
