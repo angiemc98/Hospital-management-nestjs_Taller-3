@@ -1,6 +1,7 @@
 import { IsDateString, IsEmail, IsOptional, IsString, Length } from "class-validator";
 import { CreatePersonDto } from "./create-person.dto";
 import { PartialType } from "@nestjs/mapped-types";
+import { Role } from "../person.entity";
 
 
 
@@ -19,7 +20,7 @@ export class UpdatePersonDto extends PartialType(CreatePersonDto) {
     document: string;
 
     @IsDateString()
-    birthDate: string;
+    birthDate: Date;
 
     @IsEmail()
     email: string;
@@ -29,7 +30,7 @@ export class UpdatePersonDto extends PartialType(CreatePersonDto) {
     phone: string;
 
     @IsString()
-    role: string;
+    role: Role;
 
     @IsString()
     @IsOptional()

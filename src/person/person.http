@@ -1,57 +1,31 @@
-#Create Person
+# Create Person - Juan (Doctor)
 POST http://localhost:3000/person
 Content-Type: application/json
-[
-    {
-    "name": "Juan",
-    "lastName": "Perez",
-    "document": "123456780",
-    "birthDate": "1990-01-01",
-    "email": "juanp@gmail.com",
-    "phone": "12345679",
-    "role": "Doctor",
-    "gender": "Male"
-    },
 
-    {
-    "name": "Maria",
-    "lastName": "Perez",
-    "document": "123456787",
+{
+    "name": "Angie",
+    "lastName": "Maldonado",
+    "document": "98654567",
     "birthDate": "1990-01-01",
-    "email": "mariapere@gmail.com",
-    "phone": "31258690",
-    "role": "Patient",
-    "gender": "Female"
-    },
-    {
-        "name": "Pedro",
-        "lastName": "Perez",
-        "document": "123456786",
-        "birthDate": "1990-01-01",
-        "email": "pedroperez@gmail.com",
-        "phone": "31258697",
-        "role": "Patient",
-        "gender": "Male"
-    },
-    {
-        "name": "Juan",
-        "lastName": "Ortega",
-        "document": "123456788",
-        "birthDate": "1990-01-01",
-        "email": "juanortega@gmail.com",
-        "phone": "31258698",
-        "role": "Doctor",
-        "gender": "Male"
-    }
-]
+    "phone": "879765456",
+    "email": "angie@gmail.com",
+    "password": "angie1234",
+    "role": "paciente" 
+}
 
-#Find All Person
+###
+
+# Find All Person
 GET http://localhost:3000/person
 
-#Find One Person
+###
+
+# Find One Person
 GET http://localhost:3000/person/22
 
-#Update Person
+###
+
+# Update Person
 PATCH http://localhost:3000/person/21
 Content-Type: application/json
 
@@ -59,8 +33,12 @@ Content-Type: application/json
     "role": "Doctor"
 }
 
-#Delete Person
+###
+
+# Delete Person
 DELETE http://localhost:3000/person/21
 
-#Find By Role
-GET http://localhost:3000/person/role/Patient
+###
+
+# Find By Role
+GET http://localhost:3000/person/role/paciente

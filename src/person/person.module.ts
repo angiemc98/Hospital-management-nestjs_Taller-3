@@ -11,4 +11,5 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   providers: [PersonService],
   exports: [PersonService],
 })
+
 export class PersonModule {}

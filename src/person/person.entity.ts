@@ -1,8 +1,14 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Doctor } from '../doctor/doctor.entity';
 import { Patient } from '../patient/patient.entity';
+import * as bcrypt from 'bcrypt';
 
-
+// creacion de un ENUM Constantes ROL
+export enum Role{
+    Doctor = 'doctor',
+    Patient = 'paciente',
+    Admin = 'admin'
+}
 
 @Entity('person')
 export class Person {
@@ -24,8 +30,16 @@ lastName: string;
 )
 document: string;
 
-@Column()
+@Column({
+    type: 'date',
+    nullable: true
+})
 birthDate: Date;
+
+@Column(
+    {unique: true}
+)
+phone: string;
 
 @Column(
     {unique: true}
@@ -33,15 +47,34 @@ birthDate: Date;
 email: string;
 
 @Column(
-    {unique: true}
+    {select: false}
 )
-phone: string;
+password: string;
 
+// HASH bycript password 
+
+// metodos automaticos 
+// ejecuta el hash antes de que se cree un nuevo usuario 
+@BeforeInsert()
+// ejecuta el hash antes de que un registro se actualice 
+@BeforeUpdate()
+// condicion que en el campo de la contraseña no este vacio 
+async passwordHash(){
+   // 1. Verifica si la contraseña existe.
+    // 2. Verifica si la contraseña NO comienza con el prefijo de Bcrypt ('$2b$'), 
+    //    lo que indica que es texto plano y necesita ser hasheado.
+    if (this.password && this.password.length > 0 && !this.password.startsWith('$2b$')) {
+        // Costo recomendado: 10
+        this.password = await bcrypt.hash(this.password, 10); 
+    }
+}
+
+// Campo de eleccion rol 
 @Column({
     type: 'enum',
-    enum: [ 'Doctor', 'Patient']
+    enum: Role
 })
-role: string;
+role: Role;
 
 //Relationships
 @OneToOne(
@@ -56,5 +89,10 @@ doctor: Doctor;
 )
 patient: Patient;
 
+// Simulacion de login comparacion 
+async comparePassword(attempt: string): Promise<boolean> {
+        // Descomentado: Este método es ESENCIAL para el login JWT.
+        // Compara el texto plano (attempt) con el hash almacenado (this.password).
+        return await bcrypt.compare(attempt, this.password); 
+    }
 }
-

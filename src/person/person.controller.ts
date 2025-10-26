@@ -2,13 +2,15 @@ import { Controller, Post, Body, Get, Param, Patch, Delete } from '@nestjs/commo
 import { PersonService } from './person.service';
 import { CreatePersonDto } from './dto/create-person.dto';
 import { UpdatePersonDto } from './dto/update-person.dto';
+import { Person, Role } from './person.entity';
+
 
 @Controller('person')
 export class PersonController {
   constructor(private readonly personService: PersonService) {}
 
   @Post()
-  create(@Body() dto: CreatePersonDto) {
+  create(@Body() dto: CreatePersonDto): Promise<Person> {
     return this.personService.create(dto);
   }
 
@@ -24,7 +26,7 @@ export class PersonController {
 
   //Verificar
   @Get('role/:role')
-  findByRole(@Param('role') role: string) {
+  findByRole(@Param('role') role: Role) {
     return this.personService.findByrole(role);
   }
 
