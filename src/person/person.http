@@ -3,14 +3,14 @@ POST http://localhost:3000/person
 Content-Type: application/json
 
 {
-    "name": "Angie",
-    "lastName": "Maldonado",
-    "document": "98654567",
-    "birthDate": "1990-01-01",
-    "phone": "879765456",
-    "email": "angie@gmail.com",
-    "password": "angie1234",
-    "role": "paciente" 
+    "name": "Laura",
+    "lastName": "Diaz",
+    "document": "998754567",
+    "birthDate": "1900-01-01",
+    "phone": "87975456",
+    "email": "laura@gmail.com",
+    "password": "laura679",
+    "role": "admin" 
 }
 
 ###

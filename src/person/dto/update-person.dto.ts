@@ -5,7 +5,7 @@ import { Role } from "../person.entity";
 
 
 
-
+// Update Person DTO
 export class UpdatePersonDto extends PartialType(CreatePersonDto) {
 
     @IsString()

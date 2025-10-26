@@ -4,18 +4,25 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('especialidades')
 export class Specialty{
+
+    // Primary key of the specialty
     @PrimaryGeneratedColumn()
     id_especialidad: number;
 
-    // No pueden haber especialidades repetidas
+    // Name of the specialty
+    // Is required, length between 2 and 100
+    // Unique
     @Column({unique: true, length:100})
     name: string;
 
-    // Permiso de que la columna pueda estar vacía 
+   // Description of the specialty
+   // Is optional
     @Column({nullable: true})
     description: string;
 
-    // Relacion especialidad > medico 'Varios medicos pueden tener una especialidad' Uno a Muchos
+    //Relationships
+
+   // Relation Doctor > Specialty, a Doctor can have many specialties
     @OneToMany(() => Doctor, (Doctor_Alias) => Doctor_Alias.specialty)
     propety_doctor: Doctor[];
 }

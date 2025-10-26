@@ -2,6 +2,7 @@ import { IsInt, IsOptional, IsString, Length, Min } from "class-validator";
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateMedicineDto } from './create-medicine.dto';
 
+// Update Medicine DTO
 export class UpdateMedicineDto extends PartialType(CreateMedicineDto) {
 
     @IsInt()

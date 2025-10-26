@@ -3,12 +3,11 @@ POST http://localhost:3000/invoice
 Content-Type: application/json
 
 {
-    "fecha": "2021-05-01T00:00:00.000Z",
     "total": 100,
     "metodo_pago": "transferencia",
     "estado_pago": "pendiente",
     "id_cita": 1,
-    "id_paciente": 1
+    "id_paciente": 4
 }
 
 ### Find All Invoice

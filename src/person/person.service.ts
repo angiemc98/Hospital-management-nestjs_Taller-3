@@ -30,6 +30,7 @@ export class PersonService {
     return this.personRepository.findOne(findOptions);
     }
 
+    // Find all persons with relations doctor and patient
     findAll() {
         return this.personRepository.find();
     }
@@ -38,15 +39,18 @@ export class PersonService {
         return this.personRepository.find({ where: { role } });
     }
 
+    // Find one person with id
     findOne(id: number) {
         return this.personRepository.findOne({ where: { id } });
     }
 
+    // Update person with correct relations
     async update(id: number, updatePersonDto: UpdatePersonDto) {
         await this.personRepository.update(id, updatePersonDto);
         return this.personRepository.findOne({ where: { id } });
     }
 
+    // Delete person by id
     remove(id: number) {
         return this.personRepository.delete(id);
     }

@@ -12,23 +12,30 @@ export enum Role{
 
 @Entity('person')
 export class Person {
-@PrimaryGeneratedColumn()
-id: number;
+    // Primary key of the person
+    @PrimaryGeneratedColumn()
+    id: number;
 
-@Column(
+    // Name of the person
+    // Is required, length between 2 and 100
+    @Column(
     {length: 100}
-)
-name: string;
+    )
+    name: string;
 
-@Column(
+    // Last name of the person
+    // Is required, length between 2 and 100
+    @Column(
     {length:100}
-)
-lastName: string;
+    )
+    lastName: string;
 
-@Column(
+    // Document of the person
+    // Is required, unique
+    @Column(
     {unique: true}
-)
-document: string;
+    )
+    document: string;
 
 @Column({
     type: 'date',
@@ -36,7 +43,9 @@ document: string;
 })
 birthDate: Date;
 
-@Column(
+    // Email of the person
+    // Is required, unique
+    @Column(
     {unique: true}
 )
 phone: string;
@@ -76,18 +85,21 @@ async passwordHash(){
 })
 role: Role;
 
-//Relationships
-@OneToOne(
+    //Relationships
+
+    // Relation Doctor > Person, a Person can have many doctors
+    @OneToOne(
     () => Doctor,
     (doctor) => doctor.person
-)    
-doctor: Doctor;
+    )    
+    doctor: Doctor;
 
-@OneToOne(
+    // Relation Patient > Person, a Person can have many patients
+    @OneToOne(
     () => Patient,
     (patient) => patient.person
-)
-patient: Patient;
+    )
+    patient: Patient;
 
 // Simulacion de login comparacion 
 async comparePassword(attempt: string): Promise<boolean> {

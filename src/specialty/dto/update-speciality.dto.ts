@@ -1,7 +1,7 @@
 import { IsOptional, IsString, Length } from "class-validator";
 
 
-
+// Update Specialty DTO
 export class UpdateSpecialtyDto {
     
     @IsString()

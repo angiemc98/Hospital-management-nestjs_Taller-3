@@ -7,8 +7,8 @@ Content-Type: application/json
     "observations": "Cita control de la presión arterial",
     "quantity": 10,
     "duration": 10,
-    "doctorId": 15,
-    "patientId": 3
+    "appointmentId": 1,
+    "medicineId": 1
 }
 
 ### Get all prescriptions
@@ -22,7 +22,7 @@ PATCH http://localhost:3000/prescription/1
 Content-Type: application/json
 
 {
-    "quantity": 20
+    "quantity": 5
 }
 
 ### Delete prescription

@@ -5,6 +5,7 @@ import { IsString } from "class-validator";
 
 export class UpdateDoctorDto extends PartialType(CreateDoctorDto) { 
     
+    // Update licenseNumber of Doctor
     @IsString()
     licenseNumber: string;
 
