@@ -12,10 +12,10 @@ export class UpdateAppointmentDto extends PartialType(CreateAppointmentDto) {
 
     @IsInt()
     patientId: number;  
-    /*
+    
     @IsInt()
     officeId: number;
-    */
+    
     @IsString()
     status: string;
 

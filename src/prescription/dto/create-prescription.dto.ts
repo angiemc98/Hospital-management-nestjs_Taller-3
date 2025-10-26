@@ -1,16 +1,14 @@
 import { Type } from "class-transformer";
-import { IsInt, IsOptional, IsString, ValidateNested, IsArray } from "class-validator";
+import { IsInt, IsOptional, IsDateString , IsString, ValidateNested, IsArray, IsNumber } from "class-validator";
 import { CreatePrescriptionDetailDto } from "../../prescription-detail/dto/create-prescription-detail.dto";
 
 
 
 export class CreatePrescriptionDto {
 
-    @IsInt()
-    doctorId: number;
-
-    @IsInt()
-    patientId: number;
+    @IsDateString()
+    @IsOptional()
+    date?: Date;
 
     @IsString()
     @IsOptional()
@@ -22,7 +20,12 @@ export class CreatePrescriptionDto {
     @IsInt()
     duration: number;
 
-    
+    @IsNumber()
+    appointmentId: number;
+
+    @IsNumber()
+    medicineId: number;
+
     @IsArray()
     @ValidateNested({each: true})
     @Type(() => CreatePrescriptionDetailDto)

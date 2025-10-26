@@ -7,9 +7,10 @@ import { Doctor } from 'src/doctor/doctor.entity';
 import { Patient } from 'src/patient/patient.entity';
 import { Medicine } from 'src/medicine/medicine.entity';
 import { PrescriptionDetail } from 'src/prescription-detail/prescription-detail.entity';
+import { Appointment } from 'src/appointment/appointment.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Prescription, Doctor, Patient, Medicine, PrescriptionDetail])], 
+  imports: [TypeOrmModule.forFeature([Prescription, Appointment, PrescriptionDetail, Medicine])], 
   controllers: [PrescriptionController],
   providers: [PrescriptionService],
 })

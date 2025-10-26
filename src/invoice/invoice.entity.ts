@@ -7,7 +7,7 @@ import { Patient } from "src/patient/patient.entity";
 @Entity('factura')
 export class Invoice {
     // el tipo de uuid se centra en un identificador unico universal es una cadena de caracteres como id unico 
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id_factura: number;
 
     // el tipo timestamp guarda la fecha y hora exacta en un formato yy/mm/dd y h/m/s y el default: CURRENT_TIMESTAMP quiere decir que en caso de no llenar este campo por defecto se colocara la fecha y la hora actual del servidor

@@ -31,8 +31,5 @@ export class Doctor {
     @OneToMany(() => Appointment, (appointment) => appointment.doctor, {cascade: true})
     appointments:Appointment[];
 
-    
-    @OneToMany(() => Prescription, (prescription => prescription.doctor)
-        ,{cascade: true})
-        prescription: Prescription[];
+
 }

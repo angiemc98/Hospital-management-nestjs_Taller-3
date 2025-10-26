@@ -4,12 +4,6 @@ import  { IsInt, IsString } from "class-validator";
 export class UpdatePrescriptionDto extends PartialType(CreatePrescriptionDto) {
     @IsInt()
     id: number;
-
-    @IsInt()
-    doctorId: number;
-    
-    @IsInt()
-    patientId: number;
     
     @IsString()
     observations: string;
@@ -19,5 +13,9 @@ export class UpdatePrescriptionDto extends PartialType(CreatePrescriptionDto) {
 
     @IsInt()
     duration: number;
+
+    @IsInt()
+    appointmentId: number;
+
 
 }

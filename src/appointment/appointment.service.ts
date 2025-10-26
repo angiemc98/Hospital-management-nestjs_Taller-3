@@ -29,15 +29,13 @@ export class AppointmentService {
     const doctor = await this.doctorRepository.findOneBy({id: createAppointmentDto.doctorId});
     const patient = await this.patientRepository.findOneBy({id: createAppointmentDto.patientId});
     const office = await this.officeRepository.findOneBy({id_consultorio: createAppointmentDto.officeId});
-  
+    
     if (!doctor || !patient) {
       throw new Error('Doctor or patient not found');
     }
-
     if (!office) {
       throw new Error('Office not found');
     }
-
     const appointment = this.appointmentRepository.create({
       date: new Date(createAppointmentDto.date),
       reason: createAppointmentDto.reason,
@@ -46,6 +44,7 @@ export class AppointmentService {
       doctor: doctor,
       patient: patient,
       office: office
+      
     });
     return this.appointmentRepository.save(appointment);
   }

@@ -1,9 +1,10 @@
 import { Doctor } from "src/doctor/doctor.entity";
 /*import { Invoice } from "src/invoice/invoice.entity"; */
 import { Patient } from "src/patient/patient.entity";
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne, OneToMany} from "typeorm";
 import { Office } from "src/office/office.entity";
 import { Invoice } from "src/invoice/invoice.entity";
+import { Prescription } from "src/prescription/prescription.entity";
 
 
 @Entity('appointment')
@@ -41,5 +42,8 @@ export class Appointment {
     
     @OneToOne(() => Invoice, invoice => invoice.propety_cita)
     invoice: Invoice;
+
+    @OneToMany(() => Prescription, prescription => prescription.appointment)
+    prescription: Prescription[];
     
 }

@@ -30,9 +30,6 @@ export class Patient {
     @JoinColumn({name: 'patient_id'})
     appointments: Appointment[];
 
-    @OneToMany(() => Prescription, (prescription) => prescription.patient, {cascade: true})
-    prescription: Prescription[];
-
     @OneToMany(() => Invoice, (invoice) => invoice.propety_patient, {cascade: true})
     invoices: Invoice[];
 }
