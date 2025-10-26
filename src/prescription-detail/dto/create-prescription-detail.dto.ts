@@ -1,7 +1,7 @@
 import { IsInt, IsNotEmpty, IsString } from "class-validator";
 
 
-
+// Create Prescription Detail DTO
 export class CreatePrescriptionDetailDto {
     
     @IsInt()

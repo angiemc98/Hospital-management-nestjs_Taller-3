@@ -1,5 +1,6 @@
 import { IsDateString, IsNumber, IsString, IsOptional } from "class-validator";
 
+// Create Invoice DTO
 export class CreateInvoiceDto {
     @IsDateString()
     @IsOptional() // porque el valor se autogenera en la BD

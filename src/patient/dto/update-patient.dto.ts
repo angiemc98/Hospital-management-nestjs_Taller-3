@@ -1,6 +1,6 @@
 import { IsInt, IsString, IsNotEmpty, Length } from "class-validator";
 
-
+// Update Patient DTO
 export class UpdatePatientDto {
 
     @IsInt()

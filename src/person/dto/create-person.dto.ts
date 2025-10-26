@@ -2,7 +2,7 @@ import { IsDateString, IsEmail, IsOptional, IsString, Length } from "class-valid
 
 
 
-
+// Create Person DTO
 export class CreatePersonDto {
 
     @IsString()

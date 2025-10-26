@@ -3,6 +3,7 @@ import { CreatePrescriptionDetailDto } from "./create-prescription-detail.dto";
 import { IsInt, IsNotEmpty, IsString } from "class-validator";
 
 
+// Update Prescription Detail DTO
 export class UpdatePrescriptionDetailsDto extends PartialType(CreatePrescriptionDetailDto) {
 
 

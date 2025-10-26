@@ -1,5 +1,6 @@
 import { IsOptional, IsString, Length } from "class-validator";
 
+// Create Specialty DTO
 export class CreateSpecialtyDto{
     
     @IsString()

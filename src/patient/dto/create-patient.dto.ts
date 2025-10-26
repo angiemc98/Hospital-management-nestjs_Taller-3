@@ -1,7 +1,7 @@
 import { IsInt, IsString, IsNotEmpty, Length } from "class-validator";
 
 
-
+// Create Patient DTO
 export class CreatePatientDto {
 
     @IsInt()

@@ -51,6 +51,9 @@ GET http://localhost:3000/person
 #Find One Person
 GET http://localhost:3000/person/22
 
+##Find By Rol
+GET http://localhost:3000/person/role/Patient
+
 #Update Person
 PATCH http://localhost:3000/person/21
 Content-Type: application/json

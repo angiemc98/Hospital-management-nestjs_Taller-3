@@ -1,7 +1,7 @@
 import { IsInt, IsOptional, IsString, Length, Min } from "class-validator";
 
 
-
+// Create Medicine DTO
 export class CreateMedicineDto {
 
     @IsString()

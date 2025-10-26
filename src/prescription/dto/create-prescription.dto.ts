@@ -3,7 +3,7 @@ import { IsInt, IsOptional, IsDateString , IsString, ValidateNested, IsArray, Is
 import { CreatePrescriptionDetailDto } from "../../prescription-detail/dto/create-prescription-detail.dto";
 
 
-
+// Create Prescription DTO
 export class CreatePrescriptionDto {
 
     @IsDateString()

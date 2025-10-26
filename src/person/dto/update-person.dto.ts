@@ -4,7 +4,7 @@ import { PartialType } from "@nestjs/mapped-types";
 
 
 
-
+// Update Person DTO
 export class UpdatePersonDto extends PartialType(CreatePersonDto) {
 
     @IsString()

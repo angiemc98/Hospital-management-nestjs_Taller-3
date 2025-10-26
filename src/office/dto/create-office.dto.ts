@@ -1,5 +1,6 @@
 import { IsBoolean, IsInt, IsPositive } from 'class-validator';
 
+// Create Office DTO
 export class CreateOfficeDto {
     @IsInt()
     @IsPositive()
